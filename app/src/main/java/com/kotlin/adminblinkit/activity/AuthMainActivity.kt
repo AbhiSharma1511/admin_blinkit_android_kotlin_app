@@ -15,10 +15,5 @@ class AuthMainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        NavigationUI.setupWithNavController(binding.bottomMenu,Navigation.findNavController(this,
-//            R.id.fragmentContainerView
-//        ))
-
-
     }
 }

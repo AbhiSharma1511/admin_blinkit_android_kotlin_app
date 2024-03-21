@@ -2,4 +2,7 @@
     <string name="app_name">AdminBlinkit</string>
     <string name="hello_blank_fragment">Hello Home Admin fragment</string>
     <string name="vegetables_and_fruits">Vegetables and Fruits\n</string>
+    <string name="orders">Orders</string>
+    <string name="add_product">Add Product</string>
+    <string name="home">Home</string>
 </resources>
