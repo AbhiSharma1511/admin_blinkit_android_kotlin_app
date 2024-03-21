@@ -15,7 +15,7 @@ class AdminMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         val navController = navHostFragment.navController
         // Set up the bottom navigation menu with the NavController
         binding.bottomMenu.setupWithNavController(navController)

@@ -14,7 +14,7 @@ import com.kotlin.adminblinkit.Utils
 import com.kotlin.adminblinkit.activity.AdminMainActivity
 import com.kotlin.adminblinkit.databinding.FragmentOTPBinding
 import com.kotlin.adminblinkit.viewModels.AuthViewModel
-import com.kotlin.userblinkit.models.Users
+import com.kotlin.userblinkit.models.Admin
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -23,7 +23,7 @@ class OTPFragment : Fragment() {
 
     private lateinit var binding: FragmentOTPBinding
     private val viewModel : AuthViewModel by viewModels()
-    private lateinit var userNumber: String
+    private lateinit var adminNumber: String
 
 
     override fun onCreateView(
@@ -55,8 +55,8 @@ class OTPFragment : Fragment() {
 
     private fun verify(otp: String) {
         val uid = Utils.getCurrentUserId()
-        val user = Users(uid, userPhoneNumber = userNumber, userAddress = null)
-        viewModel.signInWithPhoneAuthCredential(otp, userNumber, user)
+        val admin = Admin(uid, adminPhoneNumber = adminNumber)
+        viewModel.signInWithPhoneAuthCredential(otp, adminNumber, admin)
 
         // Observe the sign-in status using collectLatest to avoid processing outdated events
         lifecycleScope.launch {
@@ -74,7 +74,7 @@ class OTPFragment : Fragment() {
 
     private fun sendOTP() {
         Utils.showDialog(requireContext(), "Sending OTP...")
-        viewModel.sendOtp(userNumber, requireActivity())
+        viewModel.sendOtp(adminNumber, requireActivity())
 
         // Observe the OTP sending status
         lifecycleScope.launch {
@@ -94,10 +94,10 @@ class OTPFragment : Fragment() {
 
     private fun getUserNumber() {
         val bundle = arguments
-        userNumber = bundle?.getString("phoneNumber").toString()
+        adminNumber = bundle?.getString("phoneNumber").toString()
 
-        binding.tvOtpPhoneNumber.text = userNumber
-        userNumber = "+91$userNumber"
+        binding.tvOtpPhoneNumber.text = adminNumber
+        adminNumber = "+91$adminNumber"
 
     }
 

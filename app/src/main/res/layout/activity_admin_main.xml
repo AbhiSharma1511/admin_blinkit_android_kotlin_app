@@ -6,10 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".activity.AdminMainActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
+        app:navGraph="@navigation/admin_nav_graph" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
